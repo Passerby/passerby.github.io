@@ -53,9 +53,20 @@ layout: default
             {%- include latest_posts.html %}
           {%- endif %}
 
+          <!-- Selected Open Source Project -->
+          <h2><a href="{{ '/repositories/' | relative_url }}" style="color: inherit;">open source projects</a></h2>
+
+          <div class="repositories d-flex flex-wrap flex-md-row flex-column justify-content-between align-items-center">
+            <div class="repo p-2 text-center">
+              <a href="https://github.com/bilibili/LastOrder-Dota2" rel="external nofollow noopener" target="_blank">
+                <img class="repo-img-light w-100" alt="bilibili/LastOrder-Dota2" src="https://github-readme-stats.vercel.app/api/pin/?username=bilibili&amp;repo=LastOrder-Dota2&amp;theme=default&amp;show_owner=true">
+                <img class="repo-img-dark w-100" alt="bilibili/LastOrder-Dota2" src="https://github-readme-stats.vercel.app/api/pin/?username=bilibili&amp;repo=LastOrder-Dota2&amp;theme=dark&amp;show_owner=true">
+              </a>
+            </div>
+          </div>
           <!-- Selected papers -->
           {% if page.selected_papers -%}
-            <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">selected publications</a></h2>
+            <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit;">publications</a></h2>
             {%- include selected_papers.html %}
           {%- endif %}
 
