@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Doctorate in the Making</a>
+# subtitle: <a href='#'>Doctorate in the Making</a>
 
 profile:
   align: right
