@@ -11,6 +11,11 @@
 - title: Education
   type: time_table
   contents:
+    - title: Master
+      institution: Stevens Institute Technology
+      year: 2026
+      description:
+        - Computer Science
     - title: Bachelor
       institution: Wuchang Shouyi University
       year: 2013
@@ -35,6 +40,10 @@
   contents:
     - title: <a href="https://github.com/bilibili/LastOrder-Dota2">LastOrder-Dota2</a>
       year: 2019-2021
+    - title: <a href="https://github.com/Passerby/right-of-way-rl">right-of-way-rl</a>
+      year: 2024-2025
+    - title: <a href="https://github.com/bilibili/Index-1.9B">Index-1.9B</a>
+      year: 2021-2023
 
 - title: Honors and Awards
   type: time_table
