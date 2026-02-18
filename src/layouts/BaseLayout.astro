@@ -1,0 +1,65 @@
+---
+import { siteConfig } from '@/config/site';
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  image,
+  canonicalUrl,
+  noindex = false
+} = Astro.props;
+
+const pageTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.title}`;
+const canonical = canonicalUrl ? new URL(canonicalUrl, siteConfig.siteUrl) : Astro.url;
+const ogImage = image ? new URL(image, siteConfig.siteUrl).toString() : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical.toString()} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="canonical" href={canonical.toString()} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="" />
+    <title>{pageTitle}</title>
+    <style is:inline>
+      html {
+        font-size: 16px;
+        text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 16px;
+        line-height: 1.5;
+        background-color: var(--background, #fdfdfd);
+        color: var(--foreground, #282728);
+      }
+    </style>
+  </head>
+  <body class="min-h-svh bg-background text-foreground">
+    <main id="main-content" class="app-layout py-16">
+      <slot />
+    </main>
+  </body>
+</html>

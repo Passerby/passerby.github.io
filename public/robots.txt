@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://passerby.github.io/sitemap-index.xml

@@ -1,0 +1,123 @@
+---
+import { siteConfig } from '@/config/site';
+
+const { pathname } = Astro.url;
+const currentPath = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
+
+const isActive = (path: string) => {
+  const normalized = path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
+  return currentPath === normalized || (normalized !== '/' && currentPath.startsWith(normalized));
+};
+---
+
+<a
+  id="skip-to-content"
+  href="#main-content"
+  class="absolute start-8 -top-full z-50 bg-background px-3 py-2 text-accent backdrop-blur-lg transition-all focus:top-4"
+>
+  Skip to content
+</a>
+
+<header class="app-layout flex flex-col items-center justify-between sm:flex-row">
+  <div
+    id="top-nav-wrap"
+    class="relative flex w-full items-baseline justify-between border-b border-border bg-background py-4 sm:items-center sm:py-6"
+  >
+    <a href="/" class="absolute py-1 text-xl leading-8 font-semibold whitespace-nowrap sm:static sm:text-2xl sm:leading-none">
+      {siteConfig.name}
+    </a>
+    <nav id="nav-menu" class="flex w-full flex-col items-center sm:ms-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0">
+      <button
+        id="menu-btn"
+        class="self-end p-2 sm:hidden"
+        type="button"
+        aria-expanded="false"
+        aria-controls="menu-items"
+        aria-label="Open Menu"
+      >
+        <svg id="close-icon" class="hidden size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+        <svg id="menu-icon" class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 6h16" />
+          <path d="M7 12h13" />
+          <path d="M10 18h10" />
+        </svg>
+      </button>
+      <ul
+        id="menu-items"
+        class="mt-4 grid hidden w-44 grid-cols-2 place-content-center gap-2 sm:mt-0 sm:ml-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0"
+      >
+        {siteConfig.nav.map((item) => {
+          return (
+            <li class="col-span-2 sm:col-span-1">
+              <a
+                class:list={[
+                  'block px-4 py-3 text-center font-medium hover:text-accent sm:px-2 sm:py-1',
+                  { 'active-nav': isActive(item.href) }
+                ]}
+                href={item.href}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+        <li class="col-span-2 flex items-center justify-center sm:col-span-1">
+          <button
+            id="theme-btn"
+            class="relative size-10 p-2 hover:[&>svg]:stroke-accent sm:size-8"
+            title="Toggle light and dark mode"
+            aria-label="auto"
+          >
+            <svg
+              class="absolute top-1/2 left-1/2 size-5 -translate-1/2 scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446A9 9 0 1 1 12 3z" />
+            </svg>
+            <svg
+              class="absolute top-1/2 left-1/2 size-5 -translate-1/2 scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  function toggleNav() {
+    const menuBtn = document.querySelector('#menu-btn');
+    const menuItems = document.querySelector('#menu-items');
+    const menuIcon = document.querySelector('#menu-icon');
+    const closeIcon = document.querySelector('#close-icon');
+
+    if (!menuBtn || !menuItems || !menuIcon || !closeIcon) {
+      return;
+    }
+
+    menuBtn.addEventListener('click', () => {
+      const openMenu = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', openMenu ? 'false' : 'true');
+      menuBtn.setAttribute('aria-label', openMenu ? 'Open Menu' : 'Close Menu');
+      menuItems.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+  }
+
+  toggleNav();
+  document.addEventListener('astro:after-swap', toggleNav);
+</script>

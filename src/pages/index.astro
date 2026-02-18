@@ -1,0 +1,248 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About">
+  <section class="space-y-8">
+    <!-- Header -->
+    <div class="grid items-center gap-8 sm:grid-cols-[220px_1fr]">
+      <img
+        class="mx-auto h-52 w-52 rounded-full border border-border object-cover sm:mx-0"
+        src="/assets/img/pro_pic.jpg"
+        alt="Rui Du"
+      />
+      <div>
+        <h1 class="text-center text-5xl font-bold sm:text-left sm:text-6xl mb-2">Rui Du</h1>
+        <p class="text-center text-lg text-muted-foreground sm:text-left">Game AI Researcher · Distributed Systems Engineer · ACG Enthusiast</p>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="border-t border-border pt-6">
+      
+      <!-- Quick Intro -->
+      <div class="mb-8">
+        <p class="mb-4 text-lg leading-relaxed">
+          👋 Hi! I'm a <strong>Game AI specialist</strong> with ~11 years of experience (8-9 years at Bilibili). 
+          I love coding (not just managing), play Dota 2 (MMR ~5000), and am an ACG enthusiast.
+          Currently pursuing MSCS at Stevens Institute of Technology.
+        </p>
+        
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2">
+          <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">🎮 Game AI</span>
+          <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">🤖 Multi-Agent RL</span>
+          <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">⚡ Distributed Systems</span>
+          <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">🎯 Dota 2 Player</span>
+          <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">🌸 ACG Culture</span>
+        </div>
+      </div>
+
+      <!-- Highlights Grid -->
+      <div class="grid gap-6 md:grid-cols-2 mb-8">
+        
+        <!-- Game AI Projects -->
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h2 class="mb-3 flex items-center gap-2 text-lg font-semibold">
+            <span>🏆</span> Game AI Projects
+          </h2>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            <li><strong>LastOrder-Dota2:</strong> Defeated pro players (MMR ~8000) in 1v1. 192 GPUs + 1000 CPUs cluster.</li>
+            <li><strong>Neural MMO:</strong> 🥇 IJCAI 2022 Top 1, 🥈 NeurIPS 2022 Top 2. Multi-agent PPO with opponent modeling.</li>
+            <li><strong>Google Football:</strong> 🥈 IEEE CoG 2022 Top 2, 🥉 2023 Top 3. 5v5 soccer AI with league training.</li>
+            <li><strong>Unity ML-Agents:</strong> Live streaming integration, SMPL body + 52 Blendshapes face capture.</li>
+          </ul>
+        </div>
+
+        <!-- Technical Strengths -->
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h2 class="mb-3 flex items-center gap-2 text-lg font-semibold">
+            <span>💻</span> Technical Strengths
+          </h2>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            <li><strong>RL Algorithms:</strong> PPO, Self-play, League Training, PBT, RLHF</li>
+            <li><strong>Multi-Agent:</strong> CTDE/CTCE, Opponent Modeling, Reward Shaping</li>
+            <li><strong>Distributed:</strong> ZeroMQ, Apache Arrow, Docker, Kubernetes</li>
+            <li><strong>Systems:</strong> Built RL platform used across company (trainer/inference/evaluator decoupled)</li>
+            <li><strong>Languages:</strong> Python, Go, C++, Rust, Ruby</li>
+          </ul>
+        </div>
+
+        <!-- Achievements -->
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h2 class="mb-3 flex items-center gap-2 text-lg font-semibold">
+            <span>🎯</span> Achievements
+          </h2>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            <li>4× Top AI Competition Winner (IJCAI, NeurIPS, IEEE CoG)</li>
+            <li>OPTIMA @ IEEE ITSC 2025 (First Author)</li>
+            <li>NeurIPS 2022 Competition Report Co-author</li>
+            <li>Bilibili Pure Gold TV Medal (internal recognition)</li>
+          </ul>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="rounded-xl border border-border bg-card p-5">
+          <h2 class="mb-3 flex items-center gap-2 text-lg font-semibold">
+            <span>💼</span> Experience
+          </h2>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            <li><strong>Bilibili</strong> (2016-2025, ~9 years): Senior ML Researcher, Tech Lead</li>
+            <li><strong>Fuxisi Tech</strong> (2014-2016): Senior Software Engineer</li>
+            <li><strong>Augmentum</strong> (2013-2014): Software Engineer</li>
+            <li><strong>Stevens</strong> (2025-2026): MSCS Student</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Personal Section -->
+      <div class="rounded-xl border border-border bg-muted/30 p-5 mb-8">
+        <h2 class="mb-3 flex items-center gap-2 text-lg font-semibold">👤 Beyond Work</h2>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          When not coding AI, I'm probably playing <strong>Dota 2</strong> (pos 1/2 main), 
+          watching anime, or at the gym. I believe good AI should be both technically sound 
+          and fun. Always happy to chat about games, RL, or just life in general!
+        </p>
+      </div>
+
+      <!-- Interactive Choice Panel -->
+      <div class="rounded-xl border-2 border-primary/20 bg-primary/5 p-6">
+        <h2 class="mb-2 text-center text-xl font-semibold">How would you like to continue?</h2>
+        <p class="mb-6 text-center text-sm text-muted-foreground">
+          Choose a topic or copy the prompt to chat with my AI assistant
+        </p>
+
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          
+          <!-- A: Making Friends -->
+          <button class="choice-btn group relative rounded-lg border border-border bg-card p-4 text-left transition-all hover:border-primary hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary" data-prompt="friends">
+            <div class="mb-2 text-2xl">🤝</div>
+            <h3 class="mb-1 font-semibold text-sm">A. Making Friends</h3>
+            <p class="text-xs text-muted-foreground">Chat about games, ACG, hobbies, life</p>
+          </button>
+
+          <!-- B: Technical Deep Dive -->
+          <button class="choice-btn group relative rounded-lg border border-border bg-card p-4 text-left transition-all hover:border-primary hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary" data-prompt="technical">
+            <div class="mb-2 text-2xl">💻</div>
+            <h3 class="mb-1 font-semibold text-sm">B. Technical Deep Dive</h3>
+            <p class="text-xs text-muted-foreground">Game AI, distributed RL, system design</p>
+          </button>
+
+          <!-- C: Job Opportunity -->
+          <button class="choice-btn group relative rounded-lg border border-border bg-card p-4 text-left transition-all hover:border-primary hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary" data-prompt="recruitment">
+            <div class="mb-2 text-2xl">💼</div>
+            <h3 class="mb-1 font-semibold text-sm">C. Job Opportunity</h3>
+            <p class="text-xs text-muted-foreground">Discuss roles, assess fit, opportunities</p>
+          </button>
+
+          <!-- D: Collaboration -->
+          <button class="choice-btn group relative rounded-lg border border-border bg-card p-4 text-left transition-all hover:border-primary hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary" data-prompt="collaboration">
+            <div class="mb-2 text-2xl">🚀</div>
+            <h3 class="mb-1 font-semibold text-sm">D. Collaboration</h3>
+            <p class="text-xs text-muted-foreground">Research, open source, projects</p>
+          </button>
+        </div>
+
+        <!-- Or use AI -->
+        <div class="mt-6 flex items-center justify-center gap-4">
+          <div class="h-px flex-1 bg-border"></div>
+          <span class="text-xs text-muted-foreground">or</span>
+          <div class="h-px flex-1 bg-border"></div>
+        </div>
+
+        <button id="ai-prompt-btn" class="mt-6 w-full rounded-lg border border-dashed border-border bg-muted/30 py-3 text-sm font-medium transition-colors hover:bg-muted/50">
+          🤖 Copy AI Assistant Prompt
+        </button>
+      </div>
+
+      <!-- AI Prompt Modal -->
+      <div id="prompt-modal" class="hidden mt-6 rounded-xl border border-border bg-card p-6">
+        <div class="mb-4 flex items-center justify-between">
+          <h3 class="font-semibold">Chat with AI Assistant</h3>
+          <button id="close-modal" class="rounded-lg p-1 hover:bg-muted">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        
+        <p id="prompt-description" class="mb-3 text-sm text-muted-foreground"></p>
+        
+        <pre id="prompt-text" class="mb-3 overflow-x-auto rounded-lg bg-muted p-4 text-xs leading-relaxed break-words whitespace-pre-wrap"></pre>
+        
+        <button id="copy-prompt-btn" class="w-full rounded-lg bg-primary py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+          Copy to Clipboard
+        </button>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const prompts = {
+    friends: {
+      desc: 'Paste this to Claude, ChatGPT, or any AI assistant to start a friendly conversation:',
+      text: 'I want to make friends with Rui Du (https://passerby.github.io). He is a game AI researcher who loves ACG culture and Dota 2. Please ask me about my interests (gaming, anime, hobbies) and then introduce him based on what we might have in common.'
+    },
+    technical: {
+      desc: 'Paste this to discuss technical topics in depth:',
+      text: 'I want to have a technical discussion with Rui Du (https://passerby.github.io) about game AI and distributed RL. Please ask me what specific technical areas I am interested in (game AI / distributed RL / MARL / RLHF / system architecture), then introduce his relevant projects and experiences in detail.'
+    },
+    recruitment: {
+      desc: 'Paste this to discuss job opportunities:',
+      text: 'I am a recruiter interested in Rui Du (https://passerby.github.io) for a potential job opportunity. Please ask me about: 1) Position type and level, 2) Location (city/remote), 3) Team size and tech stack, 4) Core requirements, 5) Salary range. Then evaluate if he would be a good fit and provide specific reasoning.'
+    },
+    collaboration: {
+      desc: 'Paste this to explore collaboration:',
+      text: 'I am interested in collaborating with Rui Du (https://passerby.github.io). Please ask me about: 1) Type of collaboration (research/open source/commercial), 2) My background, 3) Specific areas of interest, 4) Expected timeline. Then introduce relevant projects and discuss possibilities.'
+    },
+    general: {
+      desc: 'General prompt for any AI assistant:',
+      text: 'Fetch and read https://raw.githubusercontent.com/Passerby/passerby.github.io/main/AGENT_BRIEF.md, then introduce Rui Du to me. Start by asking how I would like to know him (A. Making friends, B. Technical discussion, C. Job opportunity, D. Collaboration), then provide tailored information based on my choice.'
+    }
+  };
+
+  // Choice buttons
+  document.querySelectorAll('.choice-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = btn.dataset.prompt;
+      const modal = document.getElementById('prompt-modal');
+      const desc = document.getElementById('prompt-description');
+      const text = document.getElementById('prompt-text');
+      
+      modal.classList.remove('hidden');
+      desc.textContent = prompts[type].desc;
+      text.textContent = prompts[type].text;
+      
+      // Scroll to modal
+      modal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+
+  // AI prompt button
+  document.getElementById('ai-prompt-btn').addEventListener('click', () => {
+    const modal = document.getElementById('prompt-modal');
+    const desc = document.getElementById('prompt-description');
+    const text = document.getElementById('prompt-text');
+    
+    modal.classList.remove('hidden');
+    desc.textContent = prompts.general.desc;
+    text.textContent = prompts.general.text;
+    modal.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  // Close modal
+  document.getElementById('close-modal').addEventListener('click', () => {
+    document.getElementById('prompt-modal').classList.add('hidden');
+  });
+
+  // Copy button
+  document.getElementById('copy-prompt-btn').addEventListener('click', () => {
+    const text = document.getElementById('prompt-text').textContent;
+    navigator.clipboard.writeText(text);
+    const btn = document.getElementById('copy-prompt-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy to Clipboard', 2000);
+  });
+</script>

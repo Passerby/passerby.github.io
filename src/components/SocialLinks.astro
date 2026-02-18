@@ -1,0 +1,44 @@
+---
+import { siteConfig } from '@/config/site';
+
+interface Props {
+  className?: string;
+}
+
+const { className = '' } = Astro.props;
+
+const links = [
+  siteConfig.social.email
+    ? { label: 'Email', href: `mailto:${siteConfig.social.email}` }
+    : null,
+  siteConfig.social.github
+    ? { label: 'GitHub', href: siteConfig.social.github }
+    : null,
+  siteConfig.social.scholar
+    ? { label: 'Scholar', href: siteConfig.social.scholar }
+    : null,
+  siteConfig.social.linkedin
+    ? { label: 'LinkedIn', href: siteConfig.social.linkedin }
+    : null
+].filter(Boolean) as Array<{ label: string; href: string }>;
+---
+
+{links.length > 0 && (
+  <div class={className}>
+    <ul class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+      {links.map((link, index) => (
+        <li class="flex items-center">
+          <a
+            class="underline decoration-dashed underline-offset-4 hover:text-accent"
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {link.label}
+          </a>
+          {index < links.length - 1 && <span class="px-2 opacity-60">•</span>}
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
